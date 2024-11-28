@@ -22,7 +22,8 @@ load_dotenv()
 
 # try:
 db = SQLDatabase.from_uri(
-    "postgresql://postgres:rambo@localhost:5432/cmmotors_nlp"
+    # "postgresql://postgres:rambo@localhost:5432/cmmotors_nlp"
+     "postgresql://postgres:Lun8753azul@database-1.c562cwq2q9uo.us-east-2.rds.amazonaws.com:5432/cmmotors_nlp"
     
 )
 #     print(db.table_info())

@@ -139,8 +139,8 @@ Final Answer: La última venta ocurrió el 25 de noviembre de 2024, con un total
 
 
 db = SQLDatabase.from_uri(
-        # "postgresql://postgres:rambo@localhost:5432/balansoft_postgre"
-             "postgresql://postgres:rambo@localhost:5432/cmmotors_nlp"
+        "postgresql://postgres:Lun8753azul@database-1.c562cwq2q9uo.us-east-2.rds.amazonaws.com:5432/cmmotors_nlp"
+            #  "postgresql://postgres:rambo@localhost:5432/cmmotors_nlp"
         )
 
 toolkit = SQLDatabaseToolkit(db=db, llm=model)
