@@ -1,2 +1,33 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Archivos de bases de datos locales (SQLite, por ejemplo)
+db.sqlite3
+*.db
+
+# Archivos generados automáticamente por Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Archivos de entorno virtual
+venv/
+env/
+
+# Archivos de configuración de entornos de desarrollo
+.vscode/
+.idea/
+
+# Archivos de caché y temporales
+*.log
+*.tmp
+*.temp
+
+# Archivos multimedia generados por usuarios
+media/
+
+# Archivos estáticos recolectados para producción
+staticfiles/
+
+# Variables de entorno y configuraciones sensibles
+.env

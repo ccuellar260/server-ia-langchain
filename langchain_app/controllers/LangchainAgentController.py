@@ -2,13 +2,18 @@ import os
 from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
 
+from django.http import HttpResponse
+from django.http import JsonResponse
+from django.views.decorators.http import require_POST
+from django.views.decorators.csrf import csrf_exempt
+
 # Load environment variables from .env file
 load_dotenv()
 
 openai_key = os.getenv("OPENAI_API_KEY")
 
-llm_name = "gpt-3.5-turbo"
-# llm_name = "gpt-4o"
+# llm_name = "gpt-3.5-turbo"
+llm_name = "gpt-4o"
 model = ChatOpenAI(
     api_key=openai_key,
     model=llm_name,
@@ -140,9 +145,9 @@ db = SQLDatabase.from_uri(
 
 toolkit = SQLDatabaseToolkit(db=db, llm=model)
 
-QUESTION = """
-    Dame los detalles de la última venta con sus respectivos productos vendidos.
-"""
+# QUESTION = """
+#     Dame los detalles de la última venta con sus respectivos productos vendidos.
+# """
 sql_agent = create_sql_agent(
     prefix=MSSQL_AGENT_PREFIX,
     format_instructions=MSSQL_AGENT_FORMAT_INSTRUCTIONS,
@@ -156,3 +161,28 @@ sql_agent = create_sql_agent(
 # res = sql_agent.invoke(QUESTION)
 
 # print(res)
+
+
+@csrf_exempt
+@require_POST
+def langhchain_get(request):
+    mensaje = request.POST.get('mensaje')
+    if mensaje is None:
+        # mensaje = 'llego null'
+        return JsonResponse({'error': 'el campo mensaje es requerido'}, status=400)
+    result = sql_agent.invoke(mensaje)
+    return JsonResponse(result, safe=False)
+
+
+def hola(request):
+    # realizar consutal sql, lista de usuarios
+    # usuarios = db.query("SELECT * FROM users")
+    # # print(usuarios);
+    
+    
+    return JsonResponse({
+        'mensaje': 'Hola mundo desde hola_chain q onda puto!!',
+        # 'usuarios': usuarios   
+    }, safe=False)
+
+
