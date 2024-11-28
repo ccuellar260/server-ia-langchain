@@ -74,28 +74,28 @@ WSGI_APPLICATION = 'langchain_main.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # }
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'cmmotors_nlp',
-        'USER': 'postgres',
-        'PASSWORD': 'rambo',
-        'HOST': 'localhost',    
-        'PORT': '5432',
-        'OPTIONS': {
-            'options': '-c search_path=public',
-        },
-    },
-     'postgres': {
-        'dbname': 'cmmotors_nlp',
-        'user': 'postgres',
-        'password': 'rambo',
-        'host': 'localhost',    
-        'port': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'cmmotors_nlp',
+    #     'USER': 'postgres',
+    #     'PASSWORD': 'rambo',
+    #     'HOST': 'localhost',    
+    #     'PORT': '5432',
+    #     'OPTIONS': {
+    #         'options': '-c search_path=public',
+    #     },
+    # },
+    #  'postgres': {
+    #     'dbname': 'cmmotors_nlp',
+    #     'user': 'postgres',
+    #     'password': 'rambo',
+    #     'host': 'localhost',    
+    #     'port': '5432',
+    # }
 }
 
 
